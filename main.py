@@ -3,9 +3,11 @@ import pygame
 from turtle_object import Turtle_object
 from saving import Database_manager
 from game_physics import GamePhysics
+from music import Music
 # Imports for all libraries and classes used in the main game loop
 
 pygame.init()
+pygame.mixer.init()
 
 trtl = Turtle_object(0, 0)
 db = Database_manager()
@@ -21,7 +23,8 @@ clock = pygame.time.Clock()
 TURTLE_SIZE = 32
 physics = GamePhysics(SCREEN_WIDTH, SCREEN_HEIGHT, turtle_size=TURTLE_SIZE)
 # Class instances and global constants initialization
-
+music = Music()
+music.play()
 def main():
     # Initialize game objects
     turtle_x = SCREEN_WIDTH // 2 - TURTLE_SIZE // 2
@@ -140,7 +143,7 @@ def main():
             screen.blit(image, shrimp_image_rect)
         for ob in obstacles:
             image = pygame.image.load(ob["image"])
-            pygame.draw.rect(screen, (150, 30, 30), ob["rect"])
+            pygame.draw.rect(screen, BACKROUND_COLOR, ob["rect"])
             trash = image.get_rect(center=ob["rect"].center)
             screen.blit(image, trash)
         # Draw score and lives
