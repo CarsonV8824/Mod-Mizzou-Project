@@ -29,11 +29,10 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    
+    # trtl.update()
     screen.fill((14, 135, 204))
-
-    trtl.update()
-
+    all_sprites.draw(screen)
+    all_sprites.update()
     
     if len(food_items) < 5 and random.random() < 0.01:
         food_item = Food(700, random.randint(0, SCREEN_HEIGHT))
