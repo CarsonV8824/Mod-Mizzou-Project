@@ -14,6 +14,7 @@ db.create()
 info = pygame.display.Info()
 SCREEN_WIDTH = info.current_w
 SCREEN_HEIGHT = info.current_h - 85
+BACKROUND_COLOR = (14, 135, 204)
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 
@@ -37,11 +38,13 @@ def main():
         ox = random.randint(0, SCREEN_WIDTH - 30)
         oy = random.randint(0, SCREEN_HEIGHT - 30)
         ob_rect = pygame.Rect(ox, oy, 28, 28)
+        plastic_list = ["Images/Bottle.png", "Images/Plastic_Bag.png", "Images/Straw.png"]
         obstacles.append({
             "rect": ob_rect,
             "dir_x": random.choice([-1, 1]),
             "dir_y": random.choice([-1, 1]),
             "speed": random.randint(1, 3),
+            "image": pygame.image.load(random.choice(plastic_list))
         })
 
     running = True
@@ -114,19 +117,18 @@ def main():
         if now < invuln_until and (now // 200) % 2 == 0:
             pass
         else:
-            pygame.draw.rect(screen, (0, 100, 0), turtle_rect)
             image = pygame.image.load("Images/Turtle.png")
-            screen.blit(image, turtle_rect)
+            pygame.draw.rect(screen, BACKROUND_COLOR, turtle_rect)
+            turtle_image_rect = image.get_rect(center=turtle_rect.center) 
+            screen.blit(image, turtle_image_rect)
 
         for f in food_rects:
             pygame.draw.rect(screen, (255, 200, 0), f["rect"])
             image = pygame.image.load("Images/Shrimp.png")
             screen.blit(image, f["rect"])
         for ob in obstacles:
-            plastic_list = ["Images/Bottle.png", "Images/Plastic_Bag.png", "Images/Straw.png"]
             pygame.draw.rect(screen, (150, 30, 30), ob["rect"])
-            image = pygame.image.load(random.choice(plastic_list))
-            screen.blit(image, ob["rect"])
+            screen.blit(ob["image"], ob["rect"])
 
         score_surf = font.render(f"Score: {trtl.score}", True, (255, 255, 255))
         lives_surf = font.render(f"Lives: {trtl.lives}", True, (255, 255, 255))
