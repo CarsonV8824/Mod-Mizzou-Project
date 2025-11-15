@@ -1,7 +1,11 @@
-Turtle Game:
+Franklin vs the TRASH:
 
-Use arrows or WASD to move your turtle and avoid the plastic while collecting food.
+Franklin the Turtle Needs your Help!
 
-Uses squlite for data storage and pygame for art.
+Use WASD or arrow keys to move around the turtle!
 
-Tracks high scores.
+Help him eat the shrimp and the ever-growing amount of trash in his ocean!
+
+3 Lives, and you run is done!
+
+Play against your friends with a highscore board, only top 10 scores will be saved!
