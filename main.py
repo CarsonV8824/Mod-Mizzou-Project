@@ -133,18 +133,20 @@ def main():
             pass
         else:
             image = pygame.image.load("Images/Turtle.png")
-            pygame.draw.rect(screen, BACKROUND_COLOR, turtle_rect)
+            # pygame.draw.rect(screen, BACKROUND_COLOR, turtle_rect)
             turtle_image_rect = image.get_rect(center=turtle_rect.center)
             screen.blit(image, turtle_image_rect)
         # Draw food and obstacles
         for f in food_rects:
             image = pygame.image.load("Images/Shrimp.png")
-            pygame.draw.rect(screen, BACKROUND_COLOR, f["rect"])
+            # pygame.draw.rect(screen, BACKROUND_COLOR, f["rect"])
             shrimp_image_rect = image.get_rect(center=f["rect"].center)
             screen.blit(image, shrimp_image_rect)
         for ob in obstacles:
             image = pygame.image.load(ob["image"])
-            pygame.draw.rect(screen, BACKROUND_COLOR, ob["rect"])
+            # pygame.draw.rect(screen, BACKROUND_COLOR, ob["rect"])
+            if(ob["image"] == "Images/Straw.png"):
+                image = pygame.transform.scale(image, (75, 60))
             trash = image.get_rect(center=ob["rect"].center)
             screen.blit(image, trash)
         # Draw score and lives
