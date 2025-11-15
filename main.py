@@ -3,10 +3,10 @@ import pygame
 from turtle_object import Turtle_object
 from saving import Database_manager
 from game_physics import GamePhysics
+from wave import Wave
 from music import Music
 from sound import Sound
 import threading
-from wave import Wave
 # Imports for all libraries and classes used in the main game loop
 
 pygame.init()
