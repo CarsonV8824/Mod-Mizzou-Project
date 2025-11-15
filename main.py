@@ -1,9 +1,9 @@
-from turtle_object import Turtle_object
+"""from turtle_object import Turtle_object
 
 trtl = Turtle_object()
 
     trtl.lose_life(running)
-    running = False
+    running = False"""
 import pygame
 pygame.init()
 
