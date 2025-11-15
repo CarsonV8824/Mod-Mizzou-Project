@@ -2,10 +2,11 @@ import pygame
 import os
 
 class Turtle_object(pygame.sprite.Sprite):
+    # Initialize the turtle object
 
     def __init__(self, x=100, y=100):
         super().__init__()
-        self.image = pygame.image.load("Images/turtle.png")
+        self.image = pygame.image.load("Images/Turtle.png")
 
         # set a rect so Group.draw() can blit this sprite
         self.rect = self.image.get_rect()
@@ -14,6 +15,7 @@ class Turtle_object(pygame.sprite.Sprite):
         self.score = 0
     
     def lose_life(self, running):
+        # Decrease life count by 1, if lives reach 0, set running to False
         if self.lives > 0:
             self.lives -= 1
         elif self.lives == 0:
@@ -24,9 +26,3 @@ class Turtle_object(pygame.sprite.Sprite):
         self.score += points
         return self.score
     
-    # def update(self):
-    #     # get the current mouse position
-    #     mouse_x, mouse_y = pygame.mouse.get_pos()
-    #     # center the turtle on the mouse position
-    #     self.rect.centerx = mouse_x
-    #     self.rect.centery = mouse_y
