@@ -188,8 +188,9 @@ def main():
             # Render prompt
             screen.fill((10, 10, 30))
             screen.blit(pf.render("The Turtle Was Taken over by Trash!", True, (255, 255, 255)), (40, 40))
-            screen.blit(pf.render("Game Over - Enter your name:", True, (255, 255, 255)), (40, 80))
-            screen.blit(pf.render(name, True, (255, 200, 0)), (40, 130))
+            screen.blit(pf.render("If only people helped clean up the oceans, Franklin wouldn't be in this mess!", True, (255, 255, 255)), (40, 80))
+            screen.blit(pf.render("Game Over - Enter your name:", True, (255, 255, 255)), (40, 120))
+            screen.blit(pf.render(name, True, (255, 200, 0)), (40, 170))
             pygame.display.flip()
             clock.tick(60)
 
