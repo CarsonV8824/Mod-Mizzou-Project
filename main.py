@@ -4,6 +4,8 @@ from turtle_object import Turtle_object
 from saving import Database_manager
 from game_physics import GamePhysics
 from music import Music
+from sound import Sound
+import threading
 # Imports for all libraries and classes used in the main game loop
 
 pygame.init()
@@ -23,8 +25,14 @@ clock = pygame.time.Clock()
 TURTLE_SIZE = 32
 physics = GamePhysics(SCREEN_WIDTH, SCREEN_HEIGHT, turtle_size=TURTLE_SIZE)
 # Class instances and global constants initialization
-music = Music()
-music.play()
+
+
+waves = Music()
+waves.play()
+
+beat = Sound("Sounds/Light_Lofi.mp3", 0.8)
+beat.loop_sound()
+
 def main():
     # Initialize game objects
     turtle_x = SCREEN_WIDTH // 2 - TURTLE_SIZE // 2
