@@ -8,6 +8,7 @@ SCREEN_WIDTH = info.current_w
 SCREEN_HEIGHT = info.current_h - 85
 
 class Heart(pygame.sprite.Sprite):
+    # Constructor
     def __init__(self, x_pos=500, y_pos=500):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Images/Heart.png")
