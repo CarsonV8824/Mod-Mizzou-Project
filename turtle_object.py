@@ -4,7 +4,7 @@ import os
 class Turtle_object(pygame.sprite.Sprite):
     # Initialize the turtle object
 
-    def __init__(self, x, y):
+    def __init__(self, x=100, y=100):
         super().__init__()
         self.image = pygame.image.load("Images/Turtle.png")
 

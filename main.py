@@ -14,6 +14,7 @@ db.create()
 info = pygame.display.Info()
 SCREEN_WIDTH = info.current_w
 SCREEN_HEIGHT = info.current_h - 85
+BACKROUND_COLOR = (14, 135, 204)
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 
@@ -38,11 +39,13 @@ def main():
         ox = random.randint(0, SCREEN_WIDTH - 30)
         oy = random.randint(0, SCREEN_HEIGHT - 30)
         ob_rect = pygame.Rect(ox, oy, 28, 28)
+        plastic_list = ["Images/Bottle.png", "Images/Plastic_Bag.png", "Images/Straw.png"]
         obstacles.append({
             "rect": ob_rect,
             "dir_x": random.choice([-1, 1]),
             "dir_y": random.choice([-1, 1]),
             "speed": random.randint(1, 3),
+            "image": pygame.image.load(random.choice(plastic_list))
         })
 
     # Basic game loop variables
@@ -126,6 +129,8 @@ def main():
         # Draw food and obstacles
         for f in food_rects:
             pygame.draw.rect(screen, (255, 200, 0), f["rect"])
+            image = pygame.image.load("Images/Shrimp.png")
+            screen.blit(image, f["rect"])
         for ob in obstacles:
             pygame.draw.rect(screen, (150, 30, 30), ob["rect"])
         # Draw score and lives
