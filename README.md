@@ -1,3 +1,7 @@
+This is a modded version of our project from Missouri Hacks 2025
+
+
+
 Franklin vs the TRASH:
 
 Franklin the Turtle Needs your Help!
