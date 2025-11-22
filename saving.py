@@ -23,7 +23,7 @@ class Database_manager():
         self.cur.execute("""INSERT INTO save_data (high_scores) VALUES (?)""", (json_data,))
         self.conn.commit()
         self.id += 1
-
+    
     # Read the most recent high score entry from the save_data table
     def read(self):
         save_data = list((self.cur.execute("""SELECT * FROM save_data ORDER BY id DESC;""")).fetchone())
