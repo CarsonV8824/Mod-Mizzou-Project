@@ -3,6 +3,7 @@ from saving import Database_manager
 class Highscores:
     # Initialize with player name and score
     def __init__(self, name, score):
+        
         # Store name and score, and create a database manager instance
         self.name = name
         self.score = score
